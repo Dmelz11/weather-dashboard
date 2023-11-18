@@ -1,15 +1,17 @@
 // Global variables
 var searchHistory = [];
-var weatherApiRootUrl = 'https://api.openweathermap.org';
+var weatherApiRootUrl = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
 var weatherApiKey = 'f8d62935017b3c6ac1ed01d4962d4ca5';
+var fiveDayApi = "http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"
 
+var city;
 // DOM element references
 var searchForm = document.querySelector('#search-form');
 var searchInput = document.querySelector('#search-input');
 var todayContainer = document.querySelector('#today');
 var forecastContainer = document.querySelector('#forecast');
 var searchHistoryContainer = document.querySelector('#history');
-
+var currentDate = dayjs().format();
 // Add timezone plugins to day.js
 dayjs.extend(window.dayjs_plugin_utc);
 
@@ -113,4 +115,25 @@ function handleSearchHistoryClick(e) {
  
 
 }
+function getGeolocation(city){
+  var latAndLongApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + weatherApiKey;
 
+  fetch(latAndLongApi)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
+}
+var searchBtn= document.querySelector(".search-button")
+var weather_search=document.querySelector(".weather-search")
+searchBtn.addEventListener("click",function (event) {
+  event.preventDefault();
+  
+  var cityName = weather_search.value;
+getGeolocation(cityName);
+})

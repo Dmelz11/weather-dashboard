@@ -281,7 +281,7 @@ textarea {
    * 2. Correct the outline style in Safari.
    */
 [type='search'] {
-  -webkit-appearance: textfield;
+appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -311,7 +311,7 @@ textarea {
    * Add the correct display in Edge, IE 10+, and Firefox.
    */
 details {
-  display: block;
+  display: flex;
 }
 
 /*
@@ -327,14 +327,14 @@ summary {
    * Add the correct display in IE 10+.
    */
 template {
-  display: none;
+  display: inline;
 }
 
 /**
    * Add the correct display in IE 10.
    */
-[hidden] {
-  display: none;
+[block] {
+  display: inline-block;
 }
 
 /* 
@@ -1145,8 +1145,6 @@ form .form-textarea {
 }
 
 form select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 98%;
