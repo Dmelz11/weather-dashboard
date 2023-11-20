@@ -8,6 +8,7 @@
 html {
   line-height: 1.15;
   /* 1 */
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
@@ -18,15 +19,10 @@ html {
    * Remove the margin in all browsers.
    */
 body {
+  
   margin: 0;
 }
 
-/**
-   * Render the `main` element consistently in IE.
-   */
-main {
-  display: block;
-}
 
 /**
    * Correct the font size and margin on `h1` elements within `section` and
@@ -70,6 +66,7 @@ pre {
    */
 a {
   background-color: transparent;
+  -webkit-text-decoration-skip: objects;
 }
 
 /**
@@ -190,7 +187,12 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+-webkit-appearance: button;
+}
+
+::-webkit-file-upload-button{
+ -webkit-appearance: button;
+ font: inherit;
 }
 
 /**
@@ -246,6 +248,7 @@ legend {
    * Add the correct vertical alignment in Chrome, Firefox, and Opera.
    */
 progress {
+  display: inline-block;
   vertical-align: baseline;
 }
 
@@ -301,7 +304,7 @@ appearance: textfield;
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   /* 1 */
-  font: inherit;
+  font:inherit;
   /* 2 */
 }
 
@@ -333,8 +336,8 @@ template {
 /**
    * Add the correct display in IE 10.
    */
-[block] {
-  display: inline-block;
+[hidden] {
+  display: none;
 }
 
 /* 
@@ -350,10 +353,12 @@ template {
 
 html,
 body {
+  
   min-height: 100%;
 }
 
 body {
+  
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
@@ -663,7 +668,7 @@ a:hover {
   margin-bottom: 1.375rem;
 }
 
-.my-5 {
+.container {
   margin-top: 1.625rem;
   margin-bottom: 1.625rem;
 }
@@ -1268,8 +1273,6 @@ label form [type='radio'] {
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   margin-left: -15px;
   margin-right: -15px;
@@ -1277,7 +1280,7 @@ label form [type='radio'] {
 
 [class*='col-'] {
   position: relative;
-  width: 100%;
+  width: 25%;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -1723,12 +1726,23 @@ label form [type='radio'] {
   }
 }
 
-.five-day-card {
-  position: relative;
-  width: 20%;
+.container {
+  align-items: center ;
+  order: 5;
+  width: 150px;
   padding-right: 15px;
   padding-left: 15px;
 }
+.currentWeather{
+  flex-basis: 100%;
+}
+
+h2{
+  display: block;
+
+}
+  
+
 
 .weather-img {
   border-style: none;
@@ -1752,14 +1766,13 @@ label form [type='radio'] {
 }
 
 .search-button {
-  /* text-align: inherit; */
   margin: 0.5rem;
   width: 100%;
   background-color: #5098e6;
   color: #d9e9e8;
 }
 
-.weather-search {
+.todayBlock {
   width: 100%;
   padding: 0.75rem;
   margin: 0.5rem !important;
@@ -1770,7 +1783,12 @@ label form [type='radio'] {
   border: 1px solid #484848;
   border-radius: 0.3rem;
 }
-
+.card{
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 #form-heading {
   margin: 0.5rem;
 }
