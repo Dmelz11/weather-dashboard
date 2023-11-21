@@ -358,7 +358,8 @@ body {
 }
 
 body {
-  
+ display: flex;
+ flex-wrap: nowrap;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
@@ -1636,7 +1637,7 @@ label form [type='radio'] {
 }
 
 /* col-xl */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px){
   .col-xl-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
@@ -1685,46 +1686,7 @@ label form [type='radio'] {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .justify-space-between-xl {
-    justify-content: space-between;
-  }
-  .justify-space-around-xl {
-    justify-content: space-around;
-  }
-  .justify-flex-start-xl {
-    justify-content: flex-start;
-  }
-  .justify-flex-end-xl {
-    justify-content: flex-end;
-  }
-  .justify-center-xl {
-    justify-content: center;
-  }
-  .align-start-xl {
-    align-items: flex-start;
-  }
-  .align-stretch-xl {
-    align-items: stretch;
-  }
-  .align-end-xl {
-    align-items: flex-end;
-  }
-  .align-center-xl {
-    align-items: center;
-  }
-  .align-content-start-xl {
-    align-content: flex-start;
-  }
-  .align-content-stretch-xl {
-    align-content: stretch;
-  }
-  .align-content-end-xl {
-    align-content: flex-end;
-  }
-  .align-content-center-xl {
-    align-content: center;
-  }
-}
+  
 
 .container {
   align-items: center ;
@@ -1751,7 +1713,7 @@ h2{
 
 .history-btn {
   text-align: center;
-  display: inline-block;
+  display: internal;
   padding: 0.5rem 1.2rem;
   margin: 0.5rem;
   width: 100%;
@@ -1783,7 +1745,10 @@ h2{
   border: 1px solid #484848;
   border-radius: 0.3rem;
 }
-.card{
+.container {
+  flex-direction: row;
+  align-self: stretch;
+  justify-content: center;
   flex-basis: 100%;
   display: flex;
   flex-wrap: wrap;

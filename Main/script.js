@@ -104,7 +104,9 @@ function render5DayForecast(lat, lon) {
     var windEl = document.querySelector("#todayWind");
     var dateEl = document.querySelector("#todayDate");
     var iconEl = document.querySelector("#todayIcon");
-  }
+ 
+   }
+
 
 
 
