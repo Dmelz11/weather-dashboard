@@ -97,17 +97,38 @@ function render5DayForecast(lat, lon) {
   .then(function (res) {
     return res.json();
   })
+
   .then(function (data) {
-    var cityName = document.querySelector("#searchedCity");
-    var humidEl = document.querySelector("#todayHumidity");
-    var tempEl = document.querySelector("#todayTemp");
-    var windEl = document.querySelector("#todayWind");
-    var dateEl = document.querySelector("#todayDate");
-    var iconEl = document.querySelector("#todayIcon");
+   
+    var humidEl = document.querySelector("#card-1Humidity");
+    var tempEl = document.querySelector("#card-1Temp");
+    var windEl = document.querySelector("#card-1Wind");
+    var dateEl = document.querySelector("#card-1Date");
+    var iconEl = document.querySelector("#card-1Icon");
+
+    console.log(data);
+
+    var humidity = data.main.humidity;
+      var temperature = data.main.temp;
+      var windspeed = data.wind.speed;
+      var date = new Date(data.dt * 1000);
+      var icon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
+      var name = data.name
+      console.log(temperature, windspeed, date, icon, name);
+
+      humidEl.textContent = humidity;
+      tempEl.textContent = temperature;
+      windEl.textContent = windspeed;
+      dateEl.textContent = date;
+      iconEl.setAttribute('src', icon)
+    
  
-   }
+   })
 
-
+   .catch(function (err) {
+    console.error(err);
+  });
+}
 
 
 
@@ -203,7 +224,7 @@ function getGeolocation(){
 }
 var searchBtn= document.querySelector(".search-button")
 var weather_search=document.querySelector(".weather-search")
-searchBtn.addEventListener("click",function (event) {
+searchBtn.addEventListener("click",function (event){
   event.preventDefault();
   
   var cityName = weather_search.value;
