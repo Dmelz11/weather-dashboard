@@ -1150,19 +1150,25 @@ label form [type='radio'] {
   width: 100%;
   margin-left: 0px;
 }
-
-
-
+#todayTemp{
+position: absolute;
+}
+#todayHumidity{
+position: absolute;
+}
+#todayWind{
+position: absolute;
+}
 
 .container{
   position: absolute;
-  margin-top: -351px;
+  margin-top: -1px;
   margin-left: 200px;
   display: inline-flex;
 }
  #card1 {
   position:absolute;
-  margin-top: -301px;
+  margin-top: 42px;
   margin-left: -100px;
 
  }
@@ -1229,17 +1235,18 @@ label form [type='radio'] {
   width: 175px;
 }
 .currentWeather {
-  position: absolute;
+ 
   margin-top: -560px;
   margin-left: 200px;
   margin-bottom: 0px;
   width: 850px;
+  height: 200px;
   padding: 0.75rem;
   color: #1a1a1a;
   background-color: #ffffff;
   font-size: 1.2rem;
   border: 1px solid #484848;
-  border-radius: 0.3rem;
+
 }
 
 #form-heading {
