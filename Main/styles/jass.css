@@ -1166,36 +1166,17 @@ position: absolute;
   margin-left: 200px;
   display: inline-flex;
 }
- #card1 {
-  position:absolute;
-  margin-top: 42px;
-  margin-left: -100px;
-
- }
-#card2 {
-  position:absolute;
-  margin-top: 333px;
-  margin-left: 75px;
-
+ 
+ h3{
+  margin-left: 200px;
  }
 
- #card3 {
-  position:absolute;
-  margin-top: 333px;
-  margin-left: 250px;
- }
-
- #card4 {
-  position:absolute;
-  margin-top: 333px;
-  margin-left: 425px;
-  margin-bottom:0px;
- }
- #card5 {
-  position:absolute;
-  margin-top: 333px;
-  margin-left: 600px;
- }
+.card {
+  margin: 10px;
+    color: white;
+    background-color: black;
+    width: 175px;
+}
 
 .weather-img {
   border-style: none;
@@ -1239,8 +1220,8 @@ position: absolute;
   margin-top: -560px;
   margin-left: 200px;
   margin-bottom: 0px;
-  width: 850px;
-  height: 200px;
+  width: 970px;
+  /* height: 200px; */
   padding: 0.75rem;
   color: #1a1a1a;
   background-color: #ffffff;

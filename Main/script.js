@@ -1,7 +1,12 @@
+// const { doc } = require("prettier");
+
 // Global variables
 var searchHistory = [];
 var weatherApiKey = 'f8d62935017b3c6ac1ed01d4962d4ca5';
 
+var cityName = document.querySelector("#searchedCity");
+var searchBtn= document.querySelector(".search-button")
+var weather_search=document.querySelector(".weather-search")
 
 // DOM element references
 var searchForm = document.querySelector('#search-form');
@@ -113,29 +118,58 @@ function fetch5DayForecast(lat, lon) {
   })
 
   .then(function (data) {
-   
-    var humidEl = document.querySelector("#card1Humidity");
-    var tempEl = document.querySelector("#card1Temp");
-    var windEl = document.querySelector("#card1Wind");
-    var dateEl = document.querySelector("#card1Date");
-    var iconEl = document.querySelector("#card1Icon");
-
+  
+    
     console.log(data);
 
-      var humidity = data.main.humidity;
-      var temperature = data.main.temp;
-      var windspeed = data.wind.speed;
-      var date = new Date(data.dt * 1000);
-      var icon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
-      var name = data.name
+    for (var i = 0; i < data.list.length; i+=8){
 
-      console.log(temperature, windspeed, date, icon, name);
+      var humidity = data.list[i].main.humidity;
+      var temperature = data.list[i].main.temp;
+      var windspeed = data.list[i].wind.speed;
+      var date = timeConverter(data.list[i].dt);
+      var icon = 'https://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png';
+  
+      console.log(temperature, windspeed, date, icon);
 
+      var cardDiv = document.createElement('div')
+      var cardBodyDiv = document.createElement('div')
+      var dateEl = document.createElement('h6')
+      var iconEl = document.createElement('img')
+      var tempEl = document.createElement('p')
+      var windEl = document.createElement('p')
+      var humidEl = document.createElement('p')
+      
       humidEl.textContent = humidity;
       tempEl.textContent = temperature;
       windEl.textContent = windspeed;
       dateEl.textContent = date;
       iconEl.setAttribute('src', icon)
+
+      cardDiv.setAttribute('class', 'card')
+
+      cardBodyDiv.appendChild(dateEl)
+      cardBodyDiv.appendChild(iconEl)
+      cardBodyDiv.appendChild(tempEl)
+      cardBodyDiv.appendChild(windEl)
+      cardBodyDiv.appendChild(humidEl)
+
+      cardDiv.appendChild(cardBodyDiv)
+      
+      forecastContainer.appendChild(cardDiv)
+      var cardHtml = `<div class="card" id="card1">
+      <div class="card-body">
+        <h6></h6>
+        <img class="card-icon" style="margin-left: 45%" />
+        <p><strong>Temp: </strong><span id="card-1Temp"></span></p>
+        <p><strong>Wind: </strong><span id="card-1Wind"></span></p>
+        <p><strong>Humidity: </strong><span id="card-1Humidity"></span></p>
+      </div>
+    </div>`
+
+
+    }
+
     
  
    })
@@ -145,11 +179,20 @@ function fetch5DayForecast(lat, lon) {
   });
   
 }
-
-
-
-
 // endpoint; then, calls functions to display current and forecast weather data.
+
+
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+
+  var time = date + ' ' + month + ' ' + year ;
+  return time;
+}
+
 function fetchCurrentWeather(lat, lon) {
 var weatherApiRootUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + weatherApiKey;
  
@@ -171,15 +214,15 @@ var weatherApiRootUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" +
       var humidity = data.main.humidity;
       var temperature = data.main.temp;
       var windspeed = data.wind.speed;
-      var date = new Date(data.dt * 1000);
+      var date = timeConverter(data.dt);
       var icon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
       var name = data.name
       console.log(humidity, temperature, windspeed, date, icon, name);
 
       cityName.textContent = name;
-      humidEl.textContent = humidity;
-      tempEl.textContent = temperature;
-      windEl.textContent = windspeed;
+      humidEl.textContent = humidity + '%';
+      tempEl.textContent = temperature + '°F';
+      windEl.textContent = windspeed + 'mph';
       dateEl.textContent = date;
       iconEl.setAttribute('src', icon)
     })
@@ -187,40 +230,18 @@ var weatherApiRootUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" +
       console.error(err);
     });
 }
-// 'djnaskdnkjasdk'
-// 1
-// true, false
-// null
-// undefined
-// [1, 'string', true, [1,2,3]]
-// {
-//   key: value,
-//   key1: value2
-// }
-// [
-//   {
-//     lat:xxx,
-//     lon:yyyy
-//   }
-// ]
-// function fetchCoords(search) {
-//   let lat = data.city.coord.lat
-//   let lon = data.city.coord.lat
-// }
-function handleSearchFormSubmit(e) {
-  // Don't continue if there is nothing in the search form
+
+      
+  
 
 
-  e.preventDefault();
-
-}
-
-function handleSearchHistoryClick(e) {
-  // Don't do search if current elements is not a search history button
+// function handleSearchHistoryClick(e) {
+//   // Don't do search if current elements is not a search history button
  
 
-}
-// Fetches weather data for given location from the Weather Geolocation
+// }
+// // Fetches weather data for given location from the Weather Geolocation
+
 function getGeolocation(city){
   var latAndLongApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + weatherApiKey;
 
@@ -233,17 +254,16 @@ function getGeolocation(city){
     var lat = data[0].lat;
     var lon = data[0].lon;
     fetchCurrentWeather(lat, lon)
+    fetch5DayForecast(lat, lon)
   })
   .catch(function (err) {
     console.error(err);
   })
 }
-var cityName = document.querySelector("#searchedCity");
-var searchBtn= document.querySelector(".search-button")
-var weather_search=document.querySelector(".weather-search")
+
 searchBtn.addEventListener("click",function (event){
   event.preventDefault();
-  
-  var searchedCity = weather_search.value;
-getGeolocation(searchedCity);
-});
+ 
+  var cityName = weather_search.value;
+  getGeolocation(cityName);
+})

@@ -16,36 +16,36 @@
     <!-- max-width for ultra wide resolutions -->
     <div class="container-fluid" style="max-width: 1400px">
       <div class="col-lg-3 pb-3">
-      
-       
         <aside>
           <h2 id="form-heading" class="form-label">Search for a City:</h2>
-           <form id="search-form">
-                <input class="weather-search"
-                  type="text"
-                  id="search-input"
-                  placeholder="Enter City Name"
-                  aria-labelledby="form-heading"
-                  aria-controls="today forecast"/>
-                  
+          <form id="search-form">
+            <input
+              class="weather-search"
+              type="text"
+              id="search-input"
+              placeholder="Enter City Name"
+              aria-labelledby="form-heading"
+              aria-controls="today forecast"
+            />
 
-  
-                <div class="input-group-append">
-                   <button
-                    type="submit"
-                    class="btn search-button"
-                    id="search-button"
-                    aria-label="submit search">
-                    Search
-                  </button>
-                  <hr class="hr weather-hr" />
-                </div>
-              </form>
+            <div class="input-group-append">
+              <button
+                type="submit"
+                class="btn search-button"
+                id="search-button"
+                aria-label="submit search"
+              >
+                Search
+              </button>
+              <hr class="hr weather-hr" />
+            </div>
+          </form>
           <div class="search-history">
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Atlanta
             </button>
           </div>
@@ -53,7 +53,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Denver
             </button>
           </div>
@@ -61,7 +62,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Seatle
             </button>
           </div>
@@ -69,7 +71,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               San Francisco
             </button>
           </div>
@@ -77,7 +80,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Orlando
             </button>
           </div>
@@ -85,7 +89,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               New York
             </button>
           </div>
@@ -93,7 +98,8 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Chicago
             </button>
           </div>
@@ -101,102 +107,93 @@
             <button
               type="submit"
               class="history-btn"
-              aria-label="submit search">
+              aria-label="submit search"
+            >
               Austin
             </button>
           </div>
         </aside>
-    
-    <!-- Current Weather Display -->
-    <div class="currentWeather" id="weather-today">
-        <div class="col-sm-9">
-            <h3><span id="searchedCity"></span><span id="todayDate"></span></h3>
-            <img id="todayIcon" style="display: inline-flex;"/>
-            <p><strong>Temperature: </strong><span id="todayTemp"></span> °F</p>
-            <p><strong>Humidity: </strong><span id="todayHumidity"></span>%</p>
-            <p><strong>Wind Speed: </strong><span id="todayWind"></span> mph</p>
+
+        <!-- Current Weather Display -->
+        <div class="currentWeather" id="weather-today">
+          <div class="col-sm-9">
+            <h3>
+              <span id="searchedCity"></span> <span id="todayDate"></span>
+            </h3>
+            <img id="todayIcon" style="display: inline-flex" />
+            <p><strong>Temperature: </strong><span id="todayTemp"></span></p>
+            <p><strong>Humidity: </strong><span id="todayHumidity"></span></p>
+            <p><strong>Wind Speed: </strong><span id="todayWind"></span></p>
           </div>
         </div>
       </div>
-    
-    <!--End Today's Weather Section-->
-    
-    <!--Forecast 5 Day Section-->
-    <div class="container" id="forecastFiveDay">
-      <br><br/>
+      <!--End Today's Weather Section-->
+
+      <!--Forecast 5 Day Section-->
       <h3>5-Day<span> Forecast:</span></h3>
-    </div>
-      <!-- Day 1 -->
-        <div class="card" id="card1">
+      
+      <div class="container" id="forecastFiveDay">
+        <br /><br />
+        
+        <!-- Day 1 -->
+        <!-- <div class="card" id="card1">
           <div class="card-body">
             <h6><span id="card-1Date"></span></h6>
-            <img class="card-icon" style="margin-left: 45%;"/>
+            <img class="card-icon" style="margin-left: 45%" />
             <p><strong>Temp: </strong><span id="card-1Temp"></span></p>
             <p><strong>Wind: </strong><span id="card-1Wind"></span></p>
             <p><strong>Humidity: </strong><span id="card-1Humidity"></span></p>
           </div>
-          </div>
-        </div>
-    
-       
+        </div> -->
+
         <!-- Day 2 -->
-        <div class="card" id="card2">
-           <div class="card-body">
-              <h6><span id="card-2Date"></span></h6>
-              <img class="card-icon" style="margin-left: 45%"/>
-              <p><strong>Temp: </strong><span id="card-2Temp"></span></p>
-              <p><strong>Wind: </strong><span id="card-2Wind"></span></p>
-              <p><strong>Humidity: </strong><span id="card-2Humidity"></span></p>
-            </div>
+        <!-- <div class="card" id="card2">
+          <div class="card-body">
+            <h6><span id="card-2Date"></span></h6>
+            <img class="card-icon" style="margin-left: 45%" />
+            <p><strong>Temp: </strong><span id="card-2Temp"></span></p>
+            <p><strong>Wind: </strong><span id="card-2Wind"></span></p>
+            <p><strong>Humidity: </strong><span id="card-2Humidity"></span></p>
           </div>
-         
-        
-     
-      <!-- Day 3 -->
-      <div class="card" id="card3">
-        <div class="card-body">
+        </div> -->
+
+        <!-- Day 3 -->
+        <!-- <div class="card" id="card3">
+          <div class="card-body">
             <h6><span id="card-3Date"></span></h6>
-            <img class="card-icon" style="margin-left: 45%"/>
+            <img class="card-icon" style="margin-left: 45%" />
             <p><strong>Temp: </strong><span id="card-3Temp"></span></p>
             <p><strong>Wind: </strong><span id="card-3Wind"></span></p>
             <p><strong>Humidity: </strong><span id="card-3Humidity"></span></p>
           </div>
-          </div>
-       
-   
-      
-     
-     
-      <!-- Day 4 -->
-      <div class="card" id="card4">
-        <div class="card-body">
+        </div> -->
+
+        <!-- Day 4 -->
+        <!-- <div class="card" id="card4">
+          <div class="card-body">
             <h6><span id="card-4Date"></span></h6>
-            <img class="card-icon" style="margin-left: 45%"/>
+            <img class="card-icon" style="margin-left: 45%" />
             <p><strong>Temp: </strong><span id="card-4Temp"></span></p>
             <p><strong>Wind: </strong><span id="card-4Wind"></span></p>
             <p><strong>Humidity: </strong><span id="card-4Humidity"></span></p>
           </div>
-          </div>
-       
-    
-      
-    
-      <!-- Day 5 -->
-      <div class="card" id="card5">
-         <div class="card-body">
+        </div> -->
+
+        <!-- Day 5 -->
+        <!-- <div class="card" id="card5">
+          <div class="card-body">
             <h6><span id="card-5Date"></span></h6>
-            <img class="card-icon" style="margin-left: 45%"/>
+            <img class="card-icon" style="margin-left: 45%" />
             <p><strong>Temp: </strong><span id="card-5Temp"></span></p>
             <p><strong>Wind: </strong><span id="card-5Wind"></span></p>
             <p><strong>Humidity: </strong><span id="card-5Humidity"></span></p>
           </div>
-          </div>
-        
-     
-
+        </div> -->
+      </div>
+    </div>
 
     <!-- use day.js to easily format dates -->
-   <!-- <script src="path/to/dayjs/dayjs.min.js"></script> -->
+    <!-- <script src="path/to/dayjs/dayjs.min.js"></script> -->
     <script>
       //dayjs().format();
     </script>
@@ -213,7 +210,8 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js"
       integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg=="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
