@@ -1,5 +1,3 @@
-# weather-dashboard
-This repo is for the Module 06 Challenge
 # Weather Dashboard
 
 ## This repo is for the weather dashboard, Module 06 Challenge. Which will create a weather dashboard the makes API calls to openweathermap.org to fecth the current weather and a five day forecast. The weather dashboard will also show the date using the unix timestamp and store data in local storage.
