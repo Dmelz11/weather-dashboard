@@ -111,7 +111,7 @@ function renderForecastCard(forecast) {
 // Function to display 5 day forecast.
 function fetch5DayForecast(lat, lon) {
   
-  var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" +lon + "&appid=" + weatherApiKey;
+  var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" +lon + "&appid=" + weatherApiKey;
   fetch(fiveDayUrl)
   .then(function (res) {
     return res.json();
@@ -243,7 +243,7 @@ var weatherApiRootUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" +
 // // Fetches weather data for given location from the Weather Geolocation
 
 function getGeolocation(city){
-  var latAndLongApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + weatherApiKey;
+  var latAndLongApi = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + weatherApiKey;
 
   fetch(latAndLongApi)
   .then(function (res) {
